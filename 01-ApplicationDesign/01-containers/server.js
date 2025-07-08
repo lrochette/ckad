@@ -4,5 +4,5 @@ const server = http.createServer((req, res) => {
   res.end('Hello from kubernetes!');
 });
 server.listen(port, () => {
-  console.log('Server running on http:/localhost:${port}');
+  console.log("erver running on http:/localhost:%s", port);
 });

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: log-writer
+spec:
+  selector:
+    matchLabels:
+      app: log-writer
+  template:
+    metadata:
+      labels:
+        app: log-writer
+    spec:
+      containers:
+      - name: logger
+        image: busybox
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do echo \"Log entry at $(date) ...\" ; sleep 5; done"]
